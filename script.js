@@ -1,7 +1,7 @@
 // Assignment code here
 
 const lowerCaseCharacters = 'abcdefghijklmnopqrstuvwxyz';
-const specialCharacters = '!@#$%^&*()?-_+=';
+const specialCharacters = '!#$%&() * +,-./: ;<=>?@[\]^ _`{|}~';
 const numberCharacters = '1234567890';
 const upperCaseCharacters = lowerCaseCharacters.toUpperCase();
 
