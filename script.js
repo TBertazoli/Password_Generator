@@ -5,6 +5,55 @@ const specialCharacters = '!@#$%^&*()?-_+=';
 const numberCharacters = '1234567890';
 const upperCaseCharacters = lowerCaseCharacters.toUpperCase();
 
+//generate password function
+function generatePassword() {
+  var length = promptPasswordLength();
+  var isLowerCase = false;
+  var isUpperCase = false;
+  var isNumeric = false;
+  var isSpecialCharacters = false;
+
+  do {
+    isLowerCase = promptLowerCase();
+    isUpperCase = promptUpperCase();
+    isNumeric = promptNumeric();
+    isSpecialCharacters = promptSpecialCharacters();
+    if (!isLowerCase && !isUpperCase && !isNumeric && !isSpecialCharacters) {
+      window.alert("You must select at least one");
+    }
+  } while (!isLowerCase && !isUpperCase && !isNumeric && !isSpecialCharacters);
+
+  var passwordCharacters = '';
+  if (isLowerCase) {
+    passwordCharacters += lowerCaseCharacters;
+  }
+  if (isUpperCase) {
+    passwordCharacters += upperCaseCharacters;
+  }
+  if (isNumeric) {
+    passwordCharacters += numberCharacters;
+  }
+  if (isSpecialCharacters) {
+    passwordCharacters += specialCharacters;
+  }
+  console.log(passwordCharacters);
+
+  var password = '';
+
+  for (var i = 0; i < length; i++) {
+    var index = randomNumber(0, passwordCharacters.length);
+    password += passwordCharacters[index];
+  }
+  console.log(password);
+  return password;
+}
+
+var randomNumber = function (min, max) {
+  var value = Math.floor(Math.random() * (max - min) + min);
+
+  return value;
+};
+
 //lenght functiom
 var promptPasswordLength = function () {
   var length = 0;
