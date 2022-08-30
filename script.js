@@ -1,22 +1,19 @@
 // Assignment code here
 
-//generate password function
-var generatePassword = function () {
-  var length = promptPasswordLength();
-  var lowerCase = promptLowerCase();
-  var upperCase = promptUpperCase();
-  var numeric = promptNumeric();
-  var specialCharacters = promptSpecialCharacters();
-}
+const lowerCaseCharacters = 'abcdefghijklmnopqrstuvwxyz';
+const specialCharacters = '!@#$%^&*()?-_+=';
+const numberCharacters = '1234567890';
+const upperCaseCharacters = lowerCaseCharacters.toUpperCase();
 
+//lenght functiom
 var promptPasswordLength = function () {
   var length = 0;
   do {
-    length = window.prompt('Choose how many characters between 8 and 128!');
+    length = window.prompt('How many characters? Choose a nummber between 8 and 128!');
   } while (length < 8 || length > 128);
   return length;
 }
-
+//Lowercase function
 var promptLowerCase = function () {
   var lowerCase = "";
   do {
@@ -28,7 +25,7 @@ var promptLowerCase = function () {
   }
   return false;
 }
-
+//Uppercase function
 var promptUpperCase = function () {
   var upperCase = "";
   do {
@@ -40,7 +37,7 @@ var promptUpperCase = function () {
   }
   return false;
 }
-
+//Include numbers function
 var promptNumeric = function () {
   var numeric = 0;
   do {
@@ -51,7 +48,7 @@ var promptNumeric = function () {
   }
   return false;
 }
-
+//Special Characters function
 var promptSpecialCharacters = function () {
   var specialCharacters = "";
   do {
@@ -72,12 +69,10 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
 }
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
 
-//Variables
 
